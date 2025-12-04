@@ -16,6 +16,7 @@
                     @include('site.home._categorias')
                     @include('site.home._slide')
                     @include('site.home._produtos')
+                    @include('site.home._depoimentos')
                 </div>
             </div>
         </div>

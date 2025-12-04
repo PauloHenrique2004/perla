@@ -5,7 +5,7 @@
 @section('content')
     <section class="py-4 osahan-main-body">
         <div class="container">
-            <h1 class="h5 mb-4">{{ $categoria->nome }}</h1>
+            <h1 class="h5 mb-4 titulo-paginas-internas">{{ $categoria->nome }}</h1>
 
             <div class="row">
                 @forelse($produtos as $produto)

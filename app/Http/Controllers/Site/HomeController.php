@@ -39,7 +39,7 @@ class HomeController extends Controller
             ];
         });
 
-        $categorias = ProdutoCategoria::whereNull('menu_grupo')->get();
+        $categorias = ProdutoCategoria::whereNull('menu_grupo')->where('id', '!=', 25) ->get();
 
 
         return view('site.home.index', compact(

@@ -1243,3 +1243,7 @@ img {
     /*display: flex;*/
     /*align-items: center;*/
 }
+
+.titulo-paginas-internas{
+ color: #af9174 !important;
+}
