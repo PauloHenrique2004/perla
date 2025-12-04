@@ -1,0 +1,180 @@
+.grupo-header {
+    padding: 12px 25px 10px;
+    display: block;
+    background: #f2f2f2;
+    z-index: 20;
+    position: sticky;
+    top: 0;
+}
+
+.grupo-header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.grupo-header-name {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.25em;
+    font-weight: 500;
+    color: #3f3e3e;
+}
+
+.grupo-header-description {
+    font-weight: 100;
+    font-size: 0.875rem;
+    line-height: 17px;
+    display: block;
+    color: #717171;
+}
+
+.grupo-required {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.grupo-required-name {
+    background-color: #717171;
+    color: #f5f0eb;
+    border: none;
+    padding: 6px 6px 4px;
+    font-size: 0.5625rem;
+    line-height: 1;
+    display: inline-block;
+    border-radius: 3px;
+    margin: 0 3px 0 0;
+    height: 20px;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+}
+
+.grupo-valido {
+    width: 16px;
+    height: 11px;
+    margin-right: 6px;
+
+    display: inline-block;
+    position: relative;
+}
+
+.grupo-valido svg {
+    color: #50a773;
+    fill: #50a773;
+}
+
+.grupo-valido svg {
+    color: #717171;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.complemento-escolhas {
+    position: relative;
+    width: 100%;
+    display: block;
+}
+
+@media only screen and (min-width: 960px) {
+    .complemento-escolhas-conteudo {
+        padding: 16px 40px;
+    }
+}
+
+.complemento-escolhas-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+}
+
+.complemento-escolha-opcao-desc {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.27;
+    color: #3f3e3e;
+    width: 77%;
+    font-weight: 100;
+}
+
+.complemento-escolha-opcao-valor {
+    margin: 0.625rem 0 0 0;
+    display: block;
+    color: #ea1d2c;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.complemento-contador {
+    display: flex;
+    align-items: center;
+}
+
+.complemento-contador .complemento-btn-icon {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.complemento-btn-icon.complemento-btn-icon--transparent {
+    background: transparent;
+    color: #ea1d2c;
+}
+
+.complemento-btn-icon.complemento-btn-icon--transparent svg {
+    width: 100%;
+    height: 100%;
+}
+
+.complemento-btn-icon {
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px 5px;
+    border-radius: 100%;
+    outline: none;
+    transition: 100ms;
+    position: relative;
+    overflow: hidden;
+    cursor: default;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.complemento-btn-icon:focus {
+    box-shadow: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.complemento-valor {
+    display: inline-block;
+    height: 30px;
+    min-width: 35px;
+    line-height: 34px;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 500;
+    margin: 3px 0;
+}
+
+.complemento-btn-icon .icone-complemento {
+    height: 20px;
+    width: 20px;
+}
