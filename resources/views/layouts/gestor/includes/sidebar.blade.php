@@ -152,6 +152,14 @@
                     </a>
                 </li>
 
+                <li class="nav-item mt-3">
+                    <a href="{{ route('gestor.depoimentos.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-comments"></i>
+                        <p>Depoimentos</p>
+                    </a>
+                </li>
+
+
                 {{--                <li class="nav-item">--}}
                 {{--                    <a href="{{ route('gestor.pagina', $pagina->id) }}" class="nav-link">--}}
                 {{--                        <i class="nav-icon fas fa-file-word"></i>--}}

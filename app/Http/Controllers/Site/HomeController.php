@@ -6,6 +6,7 @@ use App\Models\Produto\Produto;
 use App\Models\ProdutoCategoria;
 use App\Models\Slide;
 use App\Models\TopoBanner;
+use App\Models\Depoimento;
 use App\Models\ProdutoDestaque;
 
 class HomeController extends Controller
@@ -39,14 +40,21 @@ class HomeController extends Controller
             ];
         });
 
+
         $categorias = ProdutoCategoria::whereNull('menu_grupo')->where('id', '!=', 25) ->get();
+
+        $depoimentos = Depoimento::where('ativo', true)
+            ->orderBy('ordem')
+            ->orderBy('id', 'desc')
+            ->get();
 
 
         return view('site.home.index', compact(
             'slides',
             'topoBanners',
             'categorias',
-            'secoes'
+            'secoes',
+            'depoimentos'
         ));
     }
 

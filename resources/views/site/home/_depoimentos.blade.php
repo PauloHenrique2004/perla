@@ -1,163 +1,77 @@
 
-<section class="py-5" id="depoimentos">
-    <div class="container">
-        <h2 class="text-center mb-4">Depoimentos</h2>
-
-        <div id="depoimentosCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-
-                <!-- SLIDE 1 -->
-                <div class="carousel-item active">
-                    <div class="row justify-content-center">
-
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="depo-card text-center p-4 h-100">
-                                <div class="mb-3">
-                                    <img src="{{ asset('site/img/dep.png') }}"
-                                         alt="Nome 1"
-                                         class="rounded-circle"
-                                         style="width:70px;height:70px;object-fit:cover;">
-                                </div>
-                                <h5 class="mb-1">Nome 1</h5>
-                                <div class="mb-2" style="color:#f5b400;">
-                                    ★★★★★
-                                </div>
-                                <p class="mb-0 text-muted small">
-                                    Texto do depoimento 1, uma frase curta falando bem da empresa.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="depo-card text-center p-4 h-100">
-                                <div class="mb-3">
-                                    <img src="{{ asset('site/img/dep.png') }}"
-                                         alt="Nome 2"
-                                         class="rounded-circle"
-                                         style="width:70px;height:70px;object-fit:cover;">
-                                </div>
-                                <h5 class="mb-1">Nome 2</h5>
-                                <div class="mb-2" style="color:#f5b400;">
-                                    ★★★★★
-                                </div>
-                                <p class="mb-0 text-muted small">
-                                    Texto do depoimento 2, mais um comentário de cliente satisfeito.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="depo-card text-center p-4 h-100">
-                                <div class="mb-3">
-                                    <img src="{{ asset('site/img/dep.png') }}"
-                                         alt="Nome 3"
-                                         class="rounded-circle"
-                                         style="width:70px;height:70px;object-fit:cover;">
-                                </div>
-                                <h5 class="mb-1">Nome 3</h5>
-                                <div class="mb-2" style="color:#f5b400;">
-                                    ★★★★★
-                                </div>
-                                <p class="mb-0 text-muted small">
-                                    Texto do depoimento 3, reforçando a qualidade do serviço.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- SLIDE 2 (exemplo) -->
-                <div class="carousel-item">
-                    <div class="row justify-content-center">
-
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="depo-card text-center p-4 h-100">
-                                <div class="mb-3">
-                                    <img src="{{ asset('site/img/dep.png') }}"
-                                         alt="Nome 4"
-                                         class="rounded-circle"
-                                         style="width:70px;height:70px;object-fit:cover;">
-                                </div>
-                                <h5 class="mb-1">Nome 4</h5>
-                                <div class="mb-2" style="color:#f5b400;">
-                                    ★★★★★
-                                </div>
-                                <p class="mb-0 text-muted small">
-                                    Outro depoimento aqui, para preencher o segundo slide.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="depo-card text-center p-4 h-100">
-                                <div class="mb-3">
-                                    <img src="{{ asset('site/img/dep.png') }}"
-                                         alt="Nome 5"
-                                         class="rounded-circle"
-                                         style="width:70px;height:70px;object-fit:cover;">
-                                </div>
-                                <h5 class="mb-1">Nome 5</h5>
-                                <div class="mb-2" style="color:#f5b400;">
-                                    ★★★★★
-                                </div>
-                                <p class="mb-0 text-muted small">
-                                    Depoimento 5, com mais uma opinião positiva.
-                                </p>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-4 mb-3">
-                            <div class="depo-card text-center p-4 h-100">
-                                <div class="mb-3">
-                                    <img src="{{ asset('site/img/dep.png') }}"
-                                         alt="Nome 6"
-                                         class="rounded-circle"
-                                         style="width:70px;height:70px;object-fit:cover;">
-                                </div>
-                                <h5 class="mb-1">Nome 6</h5>
-                                <div class="mb-2" style="color:#f5b400;">
-                                    ★★★★★
-                                </div>
-                                <p class="mb-0 text-muted small">
-                                    Depoimento 6, completando este segundo slide.
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
+@if($depoimentos->count())
+    <section class="py-5" id="depoimentos">
+        <div class="container">
+{{--            <h2 class="text-center mb-4">Depoimentos</h2>--}}
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4 class="mb-0 titulo-sessoes">Depoimentos</h4>
             </div>
 
-            <!-- Controles -->
-{{--            <a class="carousel-control-prev" href="#depoimentosCarousel" role="button" data-slide="prev">--}}
-{{--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-{{--                <span class="sr-only">Anterior</span>--}}
-{{--            </a>--}}
-{{--            <a class="carousel-control-next" href="#depoimentosCarousel" role="button" data-slide="next">--}}
-{{--                <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-{{--                <span class="sr-only">Próximo</span>--}}
-{{--            </a>--}}
 
-        <!-- Controles estilo bolinha -->
-            <button class="depo-control depo-control-prev"
-                    type="button"
-                    data-target="#depoimentosCarousel"
-                    data-slide="prev">
-                ‹
-            </button>
+            <div id="depoimentosCarousel" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
 
-            <button class="depo-control depo-control-next"
-                    type="button"
-                    data-target="#depoimentosCarousel"
-                    data-slide="next">
-                ›
-            </button>
+                    @foreach($depoimentos->chunk(3) as $chunkIndex => $chunk)
+                        <div class="carousel-item {{ $chunkIndex === 0 ? 'active' : '' }}">
+                            <div class="row justify-content-center">
 
+                                @foreach($chunk as $dep)
+                                    <div class="col-12 col-md-4 mb-3">
+                                        <div class="depo-card text-center p-4 h-100">
+                                            <div class="mb-3">
+{{--                                                @php--}}
+{{--                                                    $foto = $dep->foto--}}
+{{--                                                        ? Storage::disk('storage_configuracoes')->url($dep->foto)--}}
+{{--                                                        : asset('site/img/dep.png');--}}
+{{--                                                @endphp--}}
+
+                                                <img src="{{ Storage::disk('storage_configuracoes')->url($dep->foto) }}"
+                                                     alt="{{ $dep->nome }}"
+                                                     class="rounded-circle"
+                                                     style="width:70px;height:70px;object-fit:cover;">
+
+                                            </div>
+                                            <h5 class="mb-1">{{ $dep->nome }}</h5>
+
+                                            <div class="mb-2" style="color:#f5b400;">
+                                                @for($i = 1; $i <= 5; $i++)
+                                                    {{ $i <= $dep->estrelas ? '★' : '☆' }}
+                                                @endfor
+                                            </div>
+
+                                            <p class="mb-0 text-muted small">
+                                                {{ $dep->texto }}
+                                            </p>
+                                        </div>
+                                    </div>
+                                @endforeach
+
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+
+                <!-- Controles estilo bolinha -->
+                <button class="depo-control depo-control-prev"
+                        type="button"
+                        data-target="#depoimentosCarousel"
+                        data-slide="prev">
+                    ‹
+                </button>
+
+                <button class="depo-control depo-control-next"
+                        type="button"
+                        data-target="#depoimentosCarousel"
+                        data-slide="next">
+                    ›
+                </button>
+
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+@endif
+
 
 <style>
     .depo-card {

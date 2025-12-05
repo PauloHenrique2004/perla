@@ -126,6 +126,7 @@ Route::namespace('Gestor')->name('gestor.')->prefix('gestor')->middleware('gesto
     Route::get('/pedidos', 'PedidosController@index')->name('pedidos.index');
 
     Route::resource('topo_banners', 'TopoBannerController')->parameters(['topo_banners' => 'topoBanner']);
+    Route::resource('depoimentos', 'DepoimentosController')->parameters(['depoimentos' => 'depoimento']);
 
     Route::namespace('Produto')->group(function () {
         Route::resource('produtos_destaque', 'ProdutosDestaqueController')

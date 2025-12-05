@@ -62,6 +62,13 @@ return [
             'visibility' => 'public',
         ],
 
+        'storage_depoimentos' => [
+            'driver' => 'local',
+            'root' => storage_path('storage_depoimentos'),
+            'url' => env('APP_URL'),
+            'visibility' => 'public',
+        ],
+
 
         'storage_slides' => [
             'driver' => 'local',
@@ -130,7 +137,8 @@ return [
         public_path('storage_produto_categorias') => storage_path('app/storage_produto_categorias'),
         public_path('storage_slides') => storage_path('app/storage_slides'),
         public_path('livewire-tmp') => storage_path('app/livewire-tmp'),
-        public_path('storage_topo_banners') => storage_path('app/storage_topo_banners')
+        public_path('storage_topo_banners') => storage_path('app/storage_topo_banners'),
+        public_path('storage_depoimentos') => storage_path('app/storage_depoimentos')
     ],
 
 ];
