@@ -133,7 +133,7 @@ return [
     'links' => [
         public_path('storage_produtos') => storage_path('app/storage_produtos'),
         public_path('storage_configuracoes') => storage_path('app/storage_configuracoes'),
-//        public_path('storage_paginas') => storage_path('app/storage_paginas'),
+        public_path('storage_paginas') => storage_path('app/storage_paginas'),
         public_path('storage_produto_categorias') => storage_path('app/storage_produto_categorias'),
         public_path('storage_slides') => storage_path('app/storage_slides'),
         public_path('livewire-tmp') => storage_path('app/livewire-tmp'),
