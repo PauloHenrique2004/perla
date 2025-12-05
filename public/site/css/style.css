@@ -1254,3 +1254,10 @@ img {
 .titulo-paginas-internas{
  color: #af9174 !important;
 }
+
+@media(max-width: 768px){
+    .banner-secundario{
+
+        margin-top: -72px !important;
+    }
+}
