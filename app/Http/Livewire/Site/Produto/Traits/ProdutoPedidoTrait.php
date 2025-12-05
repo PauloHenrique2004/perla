@@ -41,6 +41,11 @@ trait ProdutoPedidoTrait
             $this->dispatchBrowserEvent('notify', ['message' => 'Adicionado ao carrinho']);
         });
 
+        if (! $this->pedidoProdutoGrupoValido) {
+            $this->dispatchBrowserEvent('itens-obrigatorios-faltando');
+            return;
+        }
+
         $this->dispatchBrowserEvent('produto-adicionado', [
             'total' => $this->total,
             'nome'  => $this->produto->nome,
@@ -48,6 +53,7 @@ trait ProdutoPedidoTrait
 
 
     }
+
 
     private function makePedidoProduto()
     {

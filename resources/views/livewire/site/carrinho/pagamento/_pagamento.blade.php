@@ -17,17 +17,17 @@
 
         <div class="card-body px-3 pb-3 pt-1 border-top">
             <div class="schedule">
-                <ul class="nav nav-tabs justify-content-center nav-fill" id="myTab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <a class="nav-link active text-dark" id="outrasFormas-tab" data-toggle="tab"
-                           href="#outrasFormas"
-                           role="tab" aria-controls="outrasFormas" aria-selected="true">
-                            <p class="mb-0 font-weight-bold">
-                                <i class="icofont-globe mr-2"></i> Formas de Pagamentos
-                            </p>
-                        </a>
-                    </li>
-                </ul>
+{{--                <ul class="nav nav-tabs justify-content-center nav-fill" id="myTab" role="tablist">--}}
+{{--                    <li class="nav-item" role="presentation">--}}
+{{--                        <a class="nav-link active text-dark" id="outrasFormas-tab" data-toggle="tab"--}}
+{{--                           href="#outrasFormas"--}}
+{{--                           role="tab" aria-controls="outrasFormas" aria-selected="true">--}}
+{{--                            <p class="mb-0 font-weight-bold">--}}
+{{--                                <i class="icofont-globe mr-2"></i> Formas de Pagamentos--}}
+{{--                            </p>--}}
+{{--                        </a>--}}
+{{--                    </li>--}}
+{{--                </ul>--}}
                 <div class="tab-content bg-white" id="myTabContent">
                     @include('livewire.site.carrinho.pagamento._outras_formas')
                 </div>

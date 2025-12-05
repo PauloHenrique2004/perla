@@ -44,10 +44,18 @@
 
                 {{-- bloco de adicionar / quantidade permanece igual --}}
                 <div class="pd-f d-flex mb-3 adicionar-pedido-desktop">
-                    <div wire:click.prevent="fazerPedido"
-                         class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
-                        <div style="float: left">Adicionar</div>
-                        <div style="float: right">R$ {{ number_format($total, 2, ',', '.') }}</div>
+
+                    <div class="btn-wrapper position-relative">
+                        <div wire:click.prevent="fazerPedido"
+                             class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
+                            <div style="float:left">Adicionar</div>
+                            <div style="float:right">R$ {{ number_format($total, 2, ',', '.') }}</div>
+                        </div>
+
+                        {{-- camada por cima quando faltar item obrigatório --}}
+                        @unless($pedidoProdutoGrupoValido)
+                            <div class="btn-overlay" onclick="$('#modalItensObrigatorios').modal('show')"></div>
+                        @endunless
                     </div>
 
                     <div class="cart-items-number d-flex">
@@ -59,7 +67,9 @@
                                wire:click="alterarQuantidade('adicionar')"/>
                     </div>
                 </div>
+
             </div>
+
 
 
 
@@ -97,10 +107,18 @@
 
     <div class="adicionar-pedido-celular">
         <div class="pd-f d-flex align-items-center">
-            <div wire:click="fazerPedido"
-                 class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
-                <div style="float: left">Adicionar</div>
-                <div style="float: right">R$ {{ number_format($total, 2, ',', '.') }}</div>
+
+            <div class="btn-wrapper position-relative">
+                <div wire:click.prevent="fazerPedido"
+                     class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
+                    <div style="float:left">Adicionar</div>
+                    <div style="float:right">R$ {{ number_format($total, 2, ',', '.') }}</div>
+                </div>
+
+                {{-- camada por cima quando faltar item obrigatório --}}
+                @unless($pedidoProdutoGrupoValido)
+                    <div class="btn-overlay" onclick="$('#modalItensObrigatorios').modal('show')"></div>
+                @endunless
             </div>
 
             <div class="cart-items-number d-flex">
@@ -150,6 +168,43 @@
             </div>
         </div>
     </div>
+
+    {{-- Modal itens obrigatórios faltando --}}
+    <div class="modal fade" id="modalItensObrigatorios" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0 rounded-lg shadow-lg">
+                <div class="modal-header border-0">
+{{--                    <h5 class="modal-title text-danger font-weight-bold" style="font-size: 1.2rem;">--}}
+{{--                        Atenção--}}
+{{--                    </h5>--}}
+{{--                    <h5 class="modal-title" style="color:#af9174;">--}}
+{{--                        Atenção--}}
+{{--                    </h5>--}}
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-3">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"
+                           style="font-size: 32px; color: #dc3545;"></i>
+                    </div>
+                    <p class="mb-2 font-weight-bold" style="font-size: 17px; text-align: center">
+                        Ainda falta selecionar itens obrigatórios.
+                    </p>
+                </div>
+
+                <div class="modal-footer border-0">
+                    <button type="button"
+                            class="btn btn-itens-obrigatorios"
+                            data-dismiss="modal" style="width: 100%">
+                        Ok, vou selecionar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </section>
 
@@ -316,17 +371,45 @@
 
 
 
+    .btn-wrapper {
+        position: relative;
+        display: inline-block;
+    }
 
+    /* camada transparente por cima do botão quando estiver inválido */
+    .btn-overlay {
+        position: absolute;
+        inset: 0;
+        cursor: not-allowed;
+        background: transparent;
+        z-index: 5;
+    }
+
+    .btn-itens-obrigatorios {
+        background: #af9174;
+        color: #fff;
+        border-radius: 999px;
+        padding: 0.5rem 1.6rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        border: none;
+    }
+
+    .btn-itens-obrigatorios:hover,
+    .btn-itens-obrigatorios:focus {
+        background: #9a7f63;
+        color: #fff;
+    }
 
 
 </style>
 
 
-
-
-
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+
+        // Já existente: produto adicionado
         window.addEventListener('produto-adicionado', function (event) {
             if (event.detail && event.detail.nome) {
                 const nomeEl = document.getElementById('modal-produto-nome');
@@ -334,8 +417,29 @@
                     nomeEl.textContent = event.detail.nome + ' foi adicionado ao carrinho.';
                 }
             }
-
             $('#modalProdutoAdicionado').modal('show');
+        });
+
+        // Novo: faltam itens obrigatórios
+        window.addEventListener('itens-obrigatorios-faltando', function () {
+            $('#modalItensObrigatorios').modal('show');
         });
     });
 </script>
+
+
+
+{{--<script>--}}
+{{--    document.addEventListener('DOMContentLoaded', function () {--}}
+{{--        window.addEventListener('produto-adicionado', function (event) {--}}
+{{--            if (event.detail && event.detail.nome) {--}}
+{{--                const nomeEl = document.getElementById('modal-produto-nome');--}}
+{{--                if (nomeEl) {--}}
+{{--                    nomeEl.textContent = event.detail.nome + ' foi adicionado ao carrinho.';--}}
+{{--                }--}}
+{{--            }--}}
+
+{{--            $('#modalProdutoAdicionado').modal('show');--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
