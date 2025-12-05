@@ -54,25 +54,25 @@
         <hr class="mb-3">
 
         {{-- Vínculo com o menu fixo --}}
-        <div class="row mb-2">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="menu_grupo">Mostrar no menu em</label>
-                    <select id="menu_grupo" class="form-control" wire:model="menu_grupo">
-                        <option value="">— Não mostrar no menu —</option>
-                        <option value="kits">Kits</option>
-                        <option value="linhas">Linhas</option>
-                        <option value="produtos">Produtos</option>
-                        <option value="cabelos">Tipos de cabelo</option>
-                    </select>
-                    <small class="form-text text-muted">
-                        Opcional: use este campo apenas se quiser que a categoria apareça no menu.
-                        O nome da categoria será usado como submenu.
-                    </small>
+{{--        <div class="row mb-2">--}}
+{{--            <div class="col-md-6">--}}
+{{--                <div class="form-group">--}}
+{{--                    <label for="menu_grupo">Mostrar no menu em</label>--}}
+{{--                    <select id="menu_grupo" class="form-control" wire:model="menu_grupo">--}}
+{{--                        <option value="">— Não mostrar no menu —</option>--}}
+{{--                        <option value="kits">Kits</option>--}}
+{{--                        <option value="linhas">Linhas</option>--}}
+{{--                        <option value="produtos">Produtos</option>--}}
+{{--                        <option value="cabelos">Tipos de cabelo</option>--}}
+{{--                    </select>--}}
+{{--                    <small class="form-text text-muted">--}}
+{{--                        Opcional: use este campo apenas se quiser que a categoria apareça no menu.--}}
+{{--                        O nome da categoria será usado como submenu.--}}
+{{--                    </small>--}}
 
-                </div>
-            </div>
-        </div>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
     </div>
 
