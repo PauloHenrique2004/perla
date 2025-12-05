@@ -40,6 +40,13 @@ trait ProdutoPedidoTrait
             $this->emit('atualizarCarrinhoHeader');
             $this->dispatchBrowserEvent('notify', ['message' => 'Adicionado ao carrinho']);
         });
+
+        $this->dispatchBrowserEvent('produto-adicionado', [
+            'total' => $this->total,
+            'nome'  => $this->produto->nome,
+        ]);
+
+
     }
 
     private function makePedidoProduto()

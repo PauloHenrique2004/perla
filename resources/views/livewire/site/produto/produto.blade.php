@@ -44,7 +44,7 @@
 
                 {{-- bloco de adicionar / quantidade permanece igual --}}
                 <div class="pd-f d-flex mb-3 adicionar-pedido-desktop">
-                    <div wire:click.confirm.prevent="fazerPedido"
+                    <div wire:click.prevent="fazerPedido"
                          class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
                         <div style="float: left">Adicionar</div>
                         <div style="float: right">R$ {{ number_format($total, 2, ',', '.') }}</div>
@@ -113,6 +113,43 @@
         </div>
     </div>
 
+    {{-- Modal pós-adicionar ao carrinho --}}
+    <div class="modal fade" id="modalProdutoAdicionado" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content border-0 rounded-lg shadow-lg">
+                <div class="modal-header border-0">
+                    <h5 class="modal-title" style="color:#af9174;">
+                        Produto adicionado ao carrinho
+                    </h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="mb-2 font-weight-bold" id="modal-produto-nome"></p>
+                    <p class="mb-0 text-muted">
+                        Deseja concluir o pedido agora ou continuar comprando?
+                    </p>
+                </div>
+                <div class="modal-footer border-0 d-flex justify-content-between">
+
+                    <a href="{{ route('home') }}">
+                        <button type="button"
+                                class="btn btn-outline-secondary" style="background: #abc49b; border-color: #abc49b; color: #fff">
+                            Continuar comprando
+                        </button>
+                    </a>
+
+
+                    <a href="{{ route('carrinho') }}"
+                       class="btn text-white"
+                       style="background:#af9174;">
+                        Concluir pedido
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </section>
 
@@ -229,4 +266,30 @@
     }
 
     /*************** / Adicionar Pedido ***************/
+
+    .modal-content {
+        border-radius: 18px;
+    }
+
+    .modal-title {
+        font-weight: 600;
+    }
+
+
 </style>
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        window.addEventListener('produto-adicionado', function (event) {
+            if (event.detail && event.detail.nome) {
+                const nomeEl = document.getElementById('modal-produto-nome');
+                if (nomeEl) {
+                    nomeEl.textContent = event.detail.nome + ' foi adicionado ao carrinho.';
+                }
+            }
+
+            $('#modalProdutoAdicionado').modal('show');
+        });
+    });
+</script>

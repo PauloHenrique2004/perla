@@ -43,7 +43,8 @@ Route::group(['prefix' => 'gestor'], function () {
 });
 
 Route::namespace('Site')->group(function () {
-    Route::get('/', 'HomeController@index');
+    Route::get('/', 'HomeController@index')->name('home');
+
 
     Route::get('/categoria/{slug}/{id}', 'HomeController@categoria')->name('categoria');
     Route::get('/promocoes', 'HomeController@promocoes')->name('promocoes');
