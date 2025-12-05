@@ -47,7 +47,7 @@
                             <i class="fas fa-info-circle"></i> Tamanho máximo 1MB (JPEG ou PNG)
                         </div>
                         <div style="text-align: center; border: 1px solid #fff;">
-                            Resolução 800px x 504px
+                            Resolução 640px x  640px
                         </div>
                     @endunless
 

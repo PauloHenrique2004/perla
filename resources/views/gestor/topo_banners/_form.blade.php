@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="imagem_desktop">Imagem Desktop</label>
                     <div class="alert alert-warning py-2" role="alert" style="margin-bottom:8px;">
-                        Dimensão recomendada: 1920 × 500 px. Formatos: JPG/PNG/WebP.
+                        Dimensão recomendada: 1700 × 578px. Formatos: JPG/PNG/WebP.
                     </div>
                     <input type="file" class="form-control" id="imagem_desktop" name="imagem_desktop" accept=".png,.jpg,.jpeg,.webp">
                     @if(!empty($topoBanner->imagem_desktop))
@@ -63,7 +63,7 @@
                 <div class="form-group">
                     <label for="imagem_mobile">Imagem Mobile</label>
                     <div class="alert alert-warning py-2" role="alert" style="margin-bottom:8px;">
-                        Dimensão recomendada: 800 × 800 px. Formatos: JPG/PNG/WebP.
+                        Dimensão recomendada: 773 × 1013px. Formatos: JPG/PNG/WebP.
                     </div>
                     <input type="file" class="form-control" id="imagem_mobile" name="imagem_mobile" accept=".png,.jpg,.jpeg,.webp">
                     @if(!empty($topoBanner->imagem_mobile))
