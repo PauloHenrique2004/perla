@@ -402,6 +402,17 @@
         color: #fff;
     }
 
+  .btn-warning.disabled, .btn-warning:disabled {
+         background-color: #af9174;
+         border-color: #af9174;
+     }
+
+    .btn-warning.disabled, .btn-warning:hover {
+        background-color: #af9174;
+        border-color: #af9174;
+    }
+
+
 
 </style>
 

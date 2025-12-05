@@ -282,6 +282,8 @@
     </div>
 </form>
 
+
+
    @section('script')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
