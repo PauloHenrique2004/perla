@@ -1,6 +1,6 @@
 <section class="secao-beneficios">
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center justify-content-center">
 
             @if(!empty($configuracoes->beneficio1))
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0">
