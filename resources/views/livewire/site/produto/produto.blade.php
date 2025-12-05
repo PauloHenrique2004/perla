@@ -170,6 +170,8 @@
         display: initial;
     }
 
+
+
     .cart-items-number {
         border-radius: .40rem;
         padding: 3px;
@@ -276,7 +278,51 @@
     }
 
 
+    .btn-adicionar {
+        max-width: 240px;
+        min-width: 240px;
+        height: 56px;
+        text-align: unset;
+        display: inline-flex;
+        align-items: center;
+        justify-content: space-between;
+        font-weight: 700;
+        font-size: 15px;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        border-radius: 999px;
+        border: none;
+        /*background: linear-gradient(90deg, #3cb371, #2e8b57);*/
+        background: #3cb371;
+        color: #fff !important;
+        box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+        transition: transform .12s ease, box-shadow .12s ease, filter .12s ease;
+    }
+
+    .btn-adicionar:hover,
+    .btn-adicionar:focus {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+        filter: brightness(1.08);
+    }
+
+    .btn-adicionar.disabled,
+    .btn-adicionar:disabled {
+        cursor: not-allowed;
+        opacity: .55;
+        box-shadow: none;
+    }
+
+
+
+
+
+
+
 </style>
+
+
+
 
 
 <script>
