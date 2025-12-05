@@ -158,6 +158,15 @@
                         </li>
                         {{-- se tiver outras páginas de ajuda, adiciona aqui --}}
                     </ul>
+
+                    @if(!empty($configuracoes->logo))
+                        <div class="mt-3 footer-logo-muted">
+                            <img src="{{ asset($configuracoes->logo) }}"
+                                 alt="{{ config('app.name') }}"
+                                 style="max-height:40px;">
+                        </div>
+                    @endif
+
                 </aside>
 
                 {{-- Coluna 2: Fale com a gente (contato + WhatsApp em destaque) --}}
