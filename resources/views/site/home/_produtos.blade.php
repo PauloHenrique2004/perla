@@ -6,7 +6,7 @@
             </div>
 
             <div class="pick_today">
-                <div class="row">
+                <div class="row" style="justify-content: center">
                     @foreach($bloco['produtos'] as $produto)
                         <div class="col-6 col-md-3 mb-3">
                             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -36,9 +36,9 @@
 <style>
     .produto img {
         margin-bottom: 10px !important;
-        height: 220px;
-        width: 220px;
-        object-fit: cover;
+        /*height: 220px;*/
+        /*width: 220px;*/
+        /*object-fit: cover;*/
     }
 
     .produto h6 {

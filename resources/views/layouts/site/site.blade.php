@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="author" content="wetech.com.br">
-    <link href="{{ asset('images/favicon.png') }}" rel="icon" type="image/png"/>
+    <link href="{{ asset('images/icone.png') }}" rel="icon" type="image/png"/>
 
     <title>@yield('title'){{ config('app.name') }}</title>
 
