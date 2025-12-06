@@ -11,7 +11,6 @@
                             </div>
 
                             <div class="categories-slider">
-
                                 @foreach($categorias as $key => $categoria)
                                     <div class="categoria-item">
                                         <a href="{{ route('categoria', [$categoria->slug, $categoria]) }}"
@@ -21,13 +20,13 @@
                                                      alt="{{ $categoria->nome }}">
                                             </div>
                                             <span class="categoria-nome">
-                                              {{ $categoria->nome }}
-                          </span>
+                    {{ $categoria->nome }}
+                </span>
                                         </a>
                                     </div>
                                 @endforeach
-
                             </div>
+
 
 
                         </div>
@@ -45,22 +44,14 @@
         padding: 20px 10px 12px;
     }
 
-    /* container das bolinhas */
-    .categories-slider {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 16px; /* espaço entre as bolinhas – funciona nos navegadores modernos */
-    }
-
-    /* fallback caso gap não funcione em algum browser mais antigo */
+    /* item do carrossel */
     .categoria-item {
-        margin: 8px;
+        text-align: center;
+        padding: 8px 4px;
     }
 
     .categoria-card {
         display: block;
-        padding: 8px 4px;
         border-radius: 12px;
         background: transparent;
         text-decoration: none;
@@ -94,39 +85,34 @@
         color: #af9174;
     }
 
-    /* ajuste mobile: bolinhas um pouco menores e mais respiro vertical */
+    /* slick arrows mais discretas */
+    .categories-slider .slick-prev,
+    .categories-slider .slick-next {
+        width: 28px;
+        height: 28px;
+        z-index: 5;
+    }
+
+    .categories-slider .slick-prev:before,
+    .categories-slider .slick-next:before {
+        color: #af9174;
+        font-size: 26px;
+    }
+
+    /* mobile: círculos menores */
     @media (max-width: 576px) {
         .categoria-thumb {
-            width: 100px;
-            height: 100px;
+            width: 90px;
+            height: 90px;
         }
-
-        .categoria-item {
-            margin: 10px 8px;
-        }
-
-        .categoria-nome {
-            font-size: 0.8rem;
-        }
-    }
-
-    @media (min-width: 577px) and (max-width: 768px){
-        .categoria-thumb {
-            width: 70px;
-            height: 70px;
-        }
-
-        .categoria-item {
-            margin: 10px 8px;
-        }
-
         .categoria-nome {
             font-size: 0.8rem;
         }
     }
 
 
-    .marrom-texto{
+    .marrom-texto {
         color: #af9174;
     }
+
 </style>

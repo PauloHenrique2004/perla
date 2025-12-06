@@ -27,3 +27,37 @@
 {!! $configuracoes->google_analytics !!}
 
 @yield('script')
+
+
+    <script>
+        $(function () {
+            $('.categories-slider').slick({
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                arrows: true,
+                dots: false,
+                infinite: false,
+                responsive: [
+                    {
+                        breakpoint: 992,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    },
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 576,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
