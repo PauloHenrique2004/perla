@@ -38,7 +38,7 @@ class ProdutoCategoria extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'nome', 'slug', 'icone', 'menu_grupo'
+        'nome', 'slug', 'icone', 'exibir_topo'
     ];
 
     public static function boot()
@@ -67,4 +67,10 @@ class ProdutoCategoria extends Model
             return \Storage::disk(self::STORAGE)->url($this->icone);
         return "/images/sem-foto.png";
     }
+
+    public function subcategorias()
+    {
+        return $this->hasMany(\App\Models\ProdutoSubCategoria::class, 'produto_categoria_id');
+    }
+
 }

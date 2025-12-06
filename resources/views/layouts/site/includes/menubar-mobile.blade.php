@@ -10,87 +10,33 @@
             </a>
         </li>
 
-        {{-- Kits --}}
-        @if($menuKits->count())
-            <li>
-                <span><i class="icofont-box mr-2"></i> Kits</span>
-                <ul>
-                    @foreach($menuKits as $cat)
-                        <li>
-                            <a href="{{ route('categoria', [$cat->slug, $cat->id]) }}">
-                                {{ $cat->nome }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </li>
-        @else
-            <li>
-                <a href="{{ route('kits.index') }}">
-                    <i class="icofont-box mr-2"></i> Kits
-                </a>
-            </li>
-        @endif
+        {{-- Categorias do topo + subcategorias --}}
+        @foreach($menuCategorias as $cat)
+            @php $temSub = $cat->subcategorias->count() > 0; @endphp
 
-        {{-- Linhas --}}
-        @if($menuLinhas->count())
-            <li>
-                <span><i class="icofont-tags mr-2"></i> Linhas</span>
-                <ul>
-                    @foreach($menuLinhas as $cat)
-                        <li>
-                            <a href="{{ route('categoria', [$cat->slug, $cat->id]) }}">
-                                {{ $cat->nome }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </li>
-        @else
-            <li>
-                <a href="#"><i class="icofont-tags mr-2"></i> Linhas</a>
-            </li>
-        @endif
-
-        {{-- Produtos --}}
-        @if($menuProdutos->count())
-            <li>
-                <span><i class="icofont-basket mr-2"></i> Produtos</span>
-                <ul>
-                    @foreach($menuProdutos as $cat)
-                        <li>
-                            <a href="{{ route('categoria', [$cat->slug, $cat->id]) }}">
-                                {{ $cat->nome }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </li>
-        @else
-            <li>
-                <a href="#"><i class="icofont-basket mr-2"></i> Produtos</a>
-            </li>
-        @endif
-
-        {{-- Tipos de cabelo --}}
-        @if($menuCabelos->count())
-            <li>
-                <span><i class="icofont-hair-curly mr-2"></i> Tipos de cabelo</span>
-                <ul>
-                    @foreach($menuCabelos as $cat)
-                        <li>
-                            <a href="{{ route('categoria', [$cat->slug, $cat->id]) }}">
-                                {{ $cat->nome }}
-                            </a>
-                        </li>
-                    @endforeach
-                </ul>
-            </li>
-        @else
-            <li>
-                <a href="#"><i class="icofont-hair-curly mr-2"></i> Tipos de cabelo</a>
-            </li>
-        @endif
+            @if($temSub)
+                <li>
+                    <span>
+                        <i class="icofont-ui-folder mr-2"></i> {{ $cat->nome }}
+                    </span>
+                    <ul>
+                        @foreach($cat->subcategorias as $sub)
+                            <li>
+                                <a href="{{ route('categoria', [$sub->slug ?? $cat->slug, $sub->id ?? $cat->id]) }}">
+                                    {{ $sub->produto_subcategoria }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+            @else
+                <li>
+                    <a href="{{ route('categoria', [$cat->slug, $cat->id]) }}">
+                        <i class="icofont-ui-folder mr-2"></i> {{ $cat->nome }}
+                    </a>
+                </li>
+            @endif
+        @endforeach
 
         <li>
             <a href="#contato"><i class="icofont-email mr-2"></i> Contato</a>

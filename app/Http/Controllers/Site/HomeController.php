@@ -41,7 +41,8 @@ class HomeController extends Controller
         });
 
 
-        $categorias = ProdutoCategoria::whereNull('menu_grupo')->where('id', '!=', 25) ->get();
+        $categorias = ProdutoCategoria::where('exibir_topo', 0)->get();
+
 
         $depoimentos = Depoimento::where('ativo', true)
             ->orderBy('ordem')
