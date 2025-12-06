@@ -36,7 +36,7 @@ class Controller extends BaseController
                 ->with(['subcategorias' => function ($q) {
                     $q->orderBy('ordem');
                 }])
-                ->orderBy('nome')
+                ->orderBy('id')
                 ->get();
 
             // compartilha uma única coleção; o Blade decide como mostrar
