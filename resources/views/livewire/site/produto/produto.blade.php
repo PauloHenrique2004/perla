@@ -23,7 +23,8 @@
 
                     <img alt="{{ $produto->nome }}"
                          src="{{ $imagemAtiva }}"
-                         class="produto-img img-fluid mx-auto shadow-sm rounded">
+                         class="img-fluid mx-auto shadow-sm rounded">
+{{--                         class="produto-img img-fluid mx-auto shadow-sm rounded">--}}
                 </div>
 
                 {{-- thumbnails embaixo --}}
