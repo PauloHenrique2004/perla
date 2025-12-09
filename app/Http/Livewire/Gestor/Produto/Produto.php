@@ -17,6 +17,7 @@ class Produto extends Component
     public $categorias;
     public $foto;
     public $destaquesHome = [];
+    public $subcategorias = [];
 
     // imagens já confirmadas para salvar
     public $uploads = [];
@@ -25,7 +26,7 @@ class Produto extends Component
     public $buffer = [];
 
     protected $rules = [
-        'produto.produto_categoria_id' => 'required',
+//        'produto.produto_categoria_id' => 'required',
         'produto.nome'                => 'required',
         'produto.descricao'           => '',
         'produto.preco'               => 'required',
@@ -36,6 +37,8 @@ class Produto extends Component
         'produto.destaque_id'         => 'nullable|exists:produto_destaques,id',
         'foto'                        => 'nullable|image|max:1024|mimes:jpeg,png',
         'buffer.*'                    => 'nullable|image|max:2048|mimes:jpeg,png',
+        'produto.produto_categoria_id'    => 'required|exists:produto_categorias,id',
+        'produto.produto_subcategoria_id' => 'nullable|exists:produto_subcategorias,id',
     ];
 
     public function confirmarBuffer()
@@ -52,9 +55,18 @@ class Produto extends Component
     public function mount(\App\Models\Produto\Produto $produto)
     {
         $this->produto       = $produto;
-        $this->categorias    = ProdutoCategoria::all();
+//        $this->categorias    = ProdutoCategoria::all();
+        $this->categorias = ProdutoCategoria::orderBy('nome')->get();
         $this->destaquesHome = ProdutoDestaque::orderBy('ordem')->orderBy('nome')->get();
+
+        if ($this->produto->produto_categoria_id) {
+            $this->subcategorias = \App\Models\ProdutoSubCategoria::where(
+                'produto_categoria_id',
+                $this->produto->produto_categoria_id
+            )->orderBy('ordem')->orderBy('produto_subcategoria')->get();
+        }
     }
+
 
     public function render()
     {
@@ -66,11 +78,39 @@ class Produto extends Component
             ->layout('layouts.gestor.gestor');
     }
 
+    public function updatedProdutoProdutoCategoriaId($value)
+    {
+        $this->subcategorias = \App\Models\ProdutoSubCategoria::where(
+            'produto_categoria_id',
+            $value
+        )->orderBy('ordem')->orderBy('produto_subcategoria')->get();
+
+        $this->produto->produto_subcategoria_id = null;
+
+        if ($this->subcategorias->count()) {
+            // aqui força obrigatório
+            $this->rules['produto.produto_subcategoria_id'] = 'required|exists:produto_subcategorias,id';
+        } else {
+            // aqui volta a ser opcional
+            $this->rules['produto.produto_subcategoria_id'] = 'nullable|exists:produto_subcategorias,id';
+        }
+    }
+
+
+
     public function salvar()
     {
-        $this->salvarFoto();
 
         $this->validate();
+
+        // se veio vazio do select, força null
+        if (empty($this->produto->produto_subcategoria_id)) {
+            $this->produto->produto_subcategoria_id = null;
+        }
+
+        $this->salvarFoto();
+
+//        $this->validate();
 
         $this->produto->save();
 

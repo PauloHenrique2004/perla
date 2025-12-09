@@ -57,11 +57,16 @@ Route::namespace('Site')->group(function () {
 
 //    Route::get('/produtos', 'ProdutosController@lista')->name('produtos');
 
+    // lista por categoria (bolinhas / categoria sem sub)
     Route::get('/categoria/{slug}/{id}', [\App\Http\Controllers\Site\CategoriaController::class, 'show'])
         ->name('categoria');
 
-    Route::get('/kits', [\App\Http\Controllers\Site\KitsController::class, 'index'])
-        ->name('kits.index');
+    Route::get('/subcategoria/{slug}/{id}', [\App\Http\Controllers\Site\CategoriaController::class, 'showSubcategoria'])
+        ->name('subcategoria');
+
+//
+//    Route::get('/kits', [\App\Http\Controllers\Site\KitsController::class, 'index'])
+//        ->name('kits.index');
 });
 
 Route::namespace('Gestor')->name('gestor.')->prefix('gestor')->middleware('gestor.auth')->group(function () {

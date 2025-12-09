@@ -1,17 +1,13 @@
-{{--@section('title', "{$produto->nome} - ")--}}
-{{--@section('og:title', $produto->nome)--}}
-{{--@section('og:image', asset($produto->thumbnailUrl()))--}}
-{{--@section('description', $produto->nome)--}}
-
-
 @extends('layouts.site.site')
 
-@section('title', $categoria->nome . ' - ')
+@section('title', ($tituloPagina ?? $categoria->nome) . ' - ')
 
 @section('content')
     <section class="py-4 osahan-main-body">
         <div class="container">
-            <h1 class="h5 mb-4 titulo-paginas-internas ">{{ $categoria->nome }}</h1>
+            <h1 class="h5 mb-4 titulo-paginas-internas ">
+                {{ $tituloPagina ?? $categoria->nome }}
+            </h1>
 
             @if($produtos->count())
                 <div class="row">
@@ -47,38 +43,13 @@
     </section>
 
     <style>
-
-        .marrom-texto{
-            color: #af9174;
-        }
-        .produto img {
-            margin-bottom: 10px !important;
-        }
-
-        .produto h6 {
-            font-weight: 400;
-            font-size: 14px;
-            margin-left: 7px;
-        }
-
-        .produto-nome {
-            height: 33px;
-            width: 93%;
-            overflow: hidden !important;
-        }
-
-        .produto-valor {
-            color: #808080;
-        }
-
-
+        .marrom-texto{ color: #af9174; }
+        .produto img { margin-bottom: 10px !important; }
+        .produto h6 { font-weight: 400; font-size: 14px; margin-left: 7px; }
+        .produto-nome { height: 33px; width: 93%; overflow: hidden !important; }
+        .produto-valor { color: #808080; }
         @media (max-width: 992px) {
-            .osahan-main-body {
-                margin-top: 5em !important;
-            }
+            .osahan-main-body { margin-top: 5em !important; }
         }
     </style>
-
-
 @endsection
-

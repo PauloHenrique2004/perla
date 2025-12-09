@@ -20,9 +20,17 @@
                         <i class="icofont-ui-folder mr-2"></i> {{ $cat->nome }}
                     </span>
                     <ul>
+                        {{-- link para a categoria geral --}}
+                        <li>
+                            <a href="{{ route('categoria', [$cat->slug, $cat->id]) }}">
+                                Todos em {{ $cat->nome }}
+                            </a>
+                        </li>
+
+                        {{-- links das subcategorias --}}
                         @foreach($cat->subcategorias as $sub)
                             <li>
-                                <a href="{{ route('categoria', [$sub->slug ?? $cat->slug, $sub->id ?? $cat->id]) }}">
+                                <a href="{{ route('subcategoria', [\Str::slug($sub->produto_subcategoria), $sub->id]) }}">
                                     {{ $sub->produto_subcategoria }}
                                 </a>
                             </li>

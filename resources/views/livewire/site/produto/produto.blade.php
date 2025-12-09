@@ -403,13 +403,13 @@
     }
 
   .btn-warning.disabled, .btn-warning:disabled {
-         background-color: #af9174;
-         border-color: #af9174;
+         background-color: #fec12a;
+         border-color: #fec12a;
      }
 
     .btn-warning.disabled, .btn-warning:hover {
-        background-color: #af9174;
-        border-color: #af9174;
+        background-color: #fec12a;
+        border-color: #fec12a;
     }
 
 

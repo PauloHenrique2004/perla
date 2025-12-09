@@ -72,6 +72,29 @@
             </div>
 
             {{-- Categoria --}}
+{{--            <div class="col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <label for="categoria">*Categoria</label>--}}
+{{--                    <select class="custom-select @error('produto.produto_categoria_id') is-invalid @enderror"--}}
+{{--                            id="categoria" wire:model="produto.produto_categoria_id" required>--}}
+{{--                        <option value="">Selecione</option>--}}
+{{--                        @foreach($categorias as $categoria)--}}
+{{--                            <option value="{{ $categoria->id }}">--}}
+{{--                                {{ $categoria->nome }}--}}
+{{--                            </option>--}}
+{{--                        @endforeach--}}
+{{--                    </select>--}}
+{{--                    @error('produto.produto_categoria_id')--}}
+{{--                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>--}}
+{{--                    @enderror--}}
+{{--                    <small class="form-text text-muted">--}}
+{{--                        A configuração da categoria define se o produto será exibido em submenu do menu superior ou na seção de categorias em destaque (bolinhas).--}}
+{{--                    </small>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+
+            {{-- Categoria --}}
             <div class="col-md-4">
                 <div class="form-group">
                     <label for="categoria">*Categoria</label>
@@ -87,11 +110,43 @@
                     @error('produto.produto_categoria_id')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
+{{--                    <small class="form-text text-muted">--}}
+{{--                        A categoria define se o produto aparece no menu do topo ou nas categorias em destaque (bolinhas).--}}
+{{--                    </small>--}}
+                </div>
+            </div>
+
+            {{-- Subcategoria (aparece só se a categoria tiver subcategorias) --}}
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="subcategoria">Subcategoria do menu </label>
+                    <select id="subcategoria"
+                            class="custom-select @error('produto.produto_subcategoria_id') is-invalid @enderror"
+                            wire:model="produto.produto_subcategoria_id"
+                            @if($subcategorias->isEmpty()) disabled @endif>
+                        <option value="">
+                            @if($subcategorias->isEmpty())
+                                — Esta categoria não possui subcategorias —
+                            @else
+                                — Selecione uma subcategoria —
+                            @endif
+                        </option>
+                        @foreach($subcategorias as $sub)
+                            <option value="{{ $sub->id }}">
+                                {{ $sub->produto_subcategoria }}
+                            </option>
+                        @endforeach
+                    </select>
+
+                    @error('produto.produto_subcategoria_id')
+                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                    @enderror
                     <small class="form-text text-muted">
-                        A configuração da categoria define se o produto será exibido em submenu do menu superior ou na seção de categorias em destaque (bolinhas).
+                        Quando você escolhe uma subcategoria, o produto aparecerá na lista ao clicar nessa opção do menu.
                     </small>
                 </div>
             </div>
+
 
             {{-- Seção destaque --}}
             <div class="col-md-4">
