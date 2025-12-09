@@ -30,12 +30,15 @@ class Controller extends BaseController
             'sobre_nos' => Pagina::where('slug', 'sobre-nos')->first()
         ]);
 
-        // categorias usadas no menu (onde menu_grupo não é nulo)
-        $categoriasMenu = ProdutoCategoria::whereNotNull('menu_grupo')->get();
+        // categorias que devem aparecer no topo, já com subcategorias
+        $menuCategorias = ProdutoCategoria::where('exibir_topo', 1)
+            ->with(['subcategorias' => function ($q) {
+                $q->orderBy('ordem');
+            }])
+            ->orderBy('id')
+            ->get();
 
-        View::share('menuKits',     $categoriasMenu->where('menu_grupo', 'kits'));
-        View::share('menuLinhas',   $categoriasMenu->where('menu_grupo', 'linhas'));
-        View::share('menuProdutos', $categoriasMenu->where('menu_grupo', 'produtos'));
-        View::share('menuCabelos',  $categoriasMenu->where('menu_grupo', 'cabelos'));
+        // compartilha uma única coleção; o Blade decide como mostrar
+        View::share('menuCategorias', $menuCategorias);
     }
 }
