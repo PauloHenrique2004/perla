@@ -12,15 +12,31 @@
 
     <div class="ml-3 d-flex align-items-center">
         <!-- search  -->
-        <form accept-charset="UTF-8" method="GET" action="/">
+{{--        <form accept-charset="UTF-8" method="GET" action="/">--}}
+{{--            <div class="input-group mr-sm-2 col-lg-12">--}}
+{{--                <input type="text" class="form-control" id="inlineFormInputGroupUsername2"--}}
+{{--                       placeholder="Buscar..." name="busca" value="{{ request()->query('busca') }}">--}}
+{{--                <div class="input-group-prepend">--}}
+{{--                    <button class="btn btn-success rounded-right"><i class="icofont-search"></i></button>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </form>--}}
+        <form method="GET" action="{{ route('home') }}" accept-charset="UTF-8">
             <div class="input-group mr-sm-2 col-lg-12">
-                <input type="text" class="form-control" id="inlineFormInputGroupUsername2"
-                       placeholder="Buscar..." name="busca" value="{{ request()->query('busca') }}">
+                <input type="search"
+                       class="form-control"
+                       id="busca-produtos"
+                       name="busca"
+                       placeholder="Buscar..."
+                       value="{{ request('busca') }}">
                 <div class="input-group-prepend">
-                    <button class="btn btn-success rounded-right"><i class="icofont-search"></i></button>
+                    <button class="btn btn-success rounded-right" type="submit">
+                        <i class="icofont-search"></i>
+                    </button>
                 </div>
             </div>
         </form>
+
     </div>
 
     <div class="ml-auto d-flex align-items-center">
