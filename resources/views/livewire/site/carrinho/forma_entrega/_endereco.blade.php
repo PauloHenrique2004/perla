@@ -22,8 +22,8 @@
             <p class="pt-2 m-0 text-right">
                     <span class="small">
                         <a href="" wire:click.prevent="editarEndereco({{ $endereco->id }})"
-{{--                           data-toggle="modal"--}}
-{{--                           data-target="#exampleModal"--}}
+                           data-toggle="modal"
+                           data-target="#exampleModal"
                            class="text-decoration-none text-info">
                             Editar
                         </a>
