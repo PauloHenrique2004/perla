@@ -78,6 +78,41 @@ class HomeController extends Controller
 
         $categorias = ProdutoCategoria::get();
 
-        return view('site.home.index', compact('slides', 'produtos', 'categorias'));
+        $topoBanners = TopoBanner::where('ativo', true)
+            ->orderBy('ordem')
+            ->orderBy('id', 'desc')
+            ->get();
+
+        // até 3 seções de destaque, em ordem
+        $destaquesHome = ProdutoDestaque::where('ativo', true)
+            ->orderBy('ordem')
+            ->orderBy('nome')
+            ->take(3)
+            ->get();
+
+        // monta um array com seção + produtos
+        $secoes = $destaquesHome->map(function ($secao) {
+            $produtos = Produto::ativos()
+                ->promocionais()
+                ->where('destaque_id', $secao->id)
+                ->inRandomOrder()
+                ->get();
+
+            return [
+                'secao'    => $secao,
+                'produtos' => $produtos,
+            ];
+        });
+
+
+        $depoimentos = Depoimento::where('ativo', true)
+            ->orderBy('ordem')
+            ->orderBy('id', 'desc')
+            ->get();
+
+
+
+
+        return view('site.home.index', compact('slides', 'produtos', 'categorias', 'topoBanners', 'secoes', 'destaquesHome', 'depoimentos'));
     }
 }
