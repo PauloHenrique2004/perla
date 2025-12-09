@@ -42,21 +42,31 @@
                     </div>
                 @endif
 
+
+
+                {{-- antes do bloco dos botões --}}
+                @php
+                    // grupo obrigatório = tipo == 2
+                    $temObrigatorios = $produto->grupos->where('tipo', 2)->count() > 0;
+                @endphp
+
+
+
                 {{-- bloco de adicionar / quantidade permanece igual --}}
                 <div class="pd-f d-flex mb-3 adicionar-pedido-desktop">
-
                     <div class="btn-wrapper position-relative">
                         <div wire:click.prevent="fazerPedido"
-                             class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
+                             class="btn btn-warning p-3 rounded btn-lg btn-adicionar
+                    @if($temObrigatorios && !$pedidoProdutoGrupoValido) disabled @endif">
                             <div style="float:left">Adicionar</div>
                             <div style="float:right">R$ {{ number_format($total, 2, ',', '.') }}</div>
                         </div>
 
-                        {{-- camada por cima quando faltar item obrigatório --}}
-                        @unless($pedidoProdutoGrupoValido)
+                        @if($temObrigatorios && !$pedidoProdutoGrupoValido)
                             <div class="btn-overlay" onclick="$('#modalItensObrigatorios').modal('show')"></div>
-                        @endunless
+                        @endif
                     </div>
+
 
                     <div class="cart-items-number d-flex">
                         <input type='button' value='-' class='qtyminus btn btn-success btn-sm'
@@ -67,9 +77,7 @@
                                wire:click="alterarQuantidade('adicionar')"/>
                     </div>
                 </div>
-
             </div>
-
 
 
 
@@ -110,15 +118,15 @@
 
             <div class="btn-wrapper position-relative">
                 <div wire:click.prevent="fazerPedido"
-                     class="btn btn-warning p-3 rounded btn-lg btn-adicionar @unless($pedidoProdutoGrupoValido) disabled @endif">
+                     class="btn btn-warning p-3 rounded btn-lg btn-adicionar
+                        @if($temObrigatorios && !$pedidoProdutoGrupoValido) disabled @endif">
                     <div style="float:left">Adicionar</div>
                     <div style="float:right">R$ {{ number_format($total, 2, ',', '.') }}</div>
                 </div>
 
-                {{-- camada por cima quando faltar item obrigatório --}}
-                @unless($pedidoProdutoGrupoValido)
+                @if($temObrigatorios && !$pedidoProdutoGrupoValido)
                     <div class="btn-overlay" onclick="$('#modalItensObrigatorios').modal('show')"></div>
-                @endunless
+                @endif
             </div>
 
             <div class="cart-items-number d-flex">
