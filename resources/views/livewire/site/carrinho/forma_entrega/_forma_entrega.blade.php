@@ -65,7 +65,7 @@
 
                         .endereco-selecionado {
                             /* border: 10px solid #225f39; */
-                            border: 10px solid #00e676;
+                            border: 10px solid #abc49b;
                             border-radius: 12px;
                             box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.35);
                         }
