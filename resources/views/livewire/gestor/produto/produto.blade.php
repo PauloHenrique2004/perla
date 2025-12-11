@@ -72,26 +72,26 @@
             </div>
 
             {{-- Categoria --}}
-{{--            <div class="col-md-4">--}}
-{{--                <div class="form-group">--}}
-{{--                    <label for="categoria">*Categoria</label>--}}
-{{--                    <select class="custom-select @error('produto.produto_categoria_id') is-invalid @enderror"--}}
-{{--                            id="categoria" wire:model="produto.produto_categoria_id" required>--}}
-{{--                        <option value="">Selecione</option>--}}
-{{--                        @foreach($categorias as $categoria)--}}
-{{--                            <option value="{{ $categoria->id }}">--}}
-{{--                                {{ $categoria->nome }}--}}
-{{--                            </option>--}}
-{{--                        @endforeach--}}
-{{--                    </select>--}}
-{{--                    @error('produto.produto_categoria_id')--}}
-{{--                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>--}}
-{{--                    @enderror--}}
-{{--                    <small class="form-text text-muted">--}}
-{{--                        A configuração da categoria define se o produto será exibido em submenu do menu superior ou na seção de categorias em destaque (bolinhas).--}}
-{{--                    </small>--}}
-{{--                </div>--}}
-{{--            </div>--}}
+            {{--            <div class="col-md-4">--}}
+            {{--                <div class="form-group">--}}
+            {{--                    <label for="categoria">*Categoria</label>--}}
+            {{--                    <select class="custom-select @error('produto.produto_categoria_id') is-invalid @enderror"--}}
+            {{--                            id="categoria" wire:model="produto.produto_categoria_id" required>--}}
+            {{--                        <option value="">Selecione</option>--}}
+            {{--                        @foreach($categorias as $categoria)--}}
+            {{--                            <option value="{{ $categoria->id }}">--}}
+            {{--                                {{ $categoria->nome }}--}}
+            {{--                            </option>--}}
+            {{--                        @endforeach--}}
+            {{--                    </select>--}}
+            {{--                    @error('produto.produto_categoria_id')--}}
+            {{--                    <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>--}}
+            {{--                    @enderror--}}
+            {{--                    <small class="form-text text-muted">--}}
+            {{--                        A configuração da categoria define se o produto será exibido em submenu do menu superior ou na seção de categorias em destaque (bolinhas).--}}
+            {{--                    </small>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
 
 
             {{-- Categoria --}}
@@ -110,12 +110,13 @@
                     @error('produto.produto_categoria_id')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
-{{--                    <small class="form-text text-muted">--}}
-{{--                        A categoria define se o produto aparece no menu do topo ou nas categorias em destaque (bolinhas).--}}
-{{--                    </small>--}}
+                    {{--                    <small class="form-text text-muted">--}}
+                    {{--                        A categoria define se o produto aparece no menu do topo ou nas categorias em destaque (bolinhas).--}}
+                    {{--                    </small>--}}
                 </div>
             </div>
 
+            {{-- Subcategoria (aparece só se a categoria tiver subcategorias) --}}
             {{-- Subcategoria (aparece só se a categoria tiver subcategorias) --}}
             <div class="col-md-4">
                 <div class="form-group">
@@ -146,6 +147,7 @@
                     </small>
                 </div>
             </div>
+
 
 
             {{-- Seção destaque --}}
@@ -339,7 +341,7 @@
 
 
 
-   @section('script')
+@section('script')
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             const btn = document.querySelector('.btn-add-imagem');
@@ -352,4 +354,4 @@
             }
         });
     </script>
-    @endsection
+@endsection

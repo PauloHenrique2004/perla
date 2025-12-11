@@ -17,7 +17,7 @@ class Produto extends Component
     public $categorias;
     public $foto;
     public $destaquesHome = [];
-    public $subcategorias = [];
+    public $subcategorias;
 
     // imagens já confirmadas para salvar
     public $uploads = [];
@@ -55,8 +55,7 @@ class Produto extends Component
     public function mount(\App\Models\Produto\Produto $produto)
     {
         $this->produto       = $produto;
-//        $this->categorias    = ProdutoCategoria::all();
-        $this->categorias = ProdutoCategoria::orderBy('nome')->get();
+        $this->categorias    = ProdutoCategoria::orderBy('nome')->get();
         $this->destaquesHome = ProdutoDestaque::orderBy('ordem')->orderBy('nome')->get();
 
         if ($this->produto->produto_categoria_id) {
@@ -64,9 +63,10 @@ class Produto extends Component
                 'produto_categoria_id',
                 $this->produto->produto_categoria_id
             )->orderBy('ordem')->orderBy('produto_subcategoria')->get();
+        } else {
+            $this->subcategorias = collect(); // <<< importante
         }
     }
-
 
     public function render()
     {
@@ -88,10 +88,8 @@ class Produto extends Component
         $this->produto->produto_subcategoria_id = null;
 
         if ($this->subcategorias->count()) {
-            // aqui força obrigatório
             $this->rules['produto.produto_subcategoria_id'] = 'required|exists:produto_subcategorias,id';
         } else {
-            // aqui volta a ser opcional
             $this->rules['produto.produto_subcategoria_id'] = 'nullable|exists:produto_subcategorias,id';
         }
     }
@@ -150,7 +148,7 @@ class Produto extends Component
             return;
         }
 
-        $fileName          = $this->foto->store(\App\Models\Produto\Produto::STORAGE);
+        $fileName = $this->foto->store(\App\Models\Produto\Produto::STORAGE);
         $thumbnailFileName = Thumbnail::make($fileName, \App\Models\Produto\Produto::STORAGE);
 
         $this->foto = null;
@@ -175,3 +173,4 @@ class Produto extends Component
         }
     }
 }
+
