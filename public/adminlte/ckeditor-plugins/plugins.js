@@ -13,6 +13,11 @@ CKEDITOR.editorConfig = function (config) {
 
     config.extraPlugins = 'justify,font,colorbutton,youtube';
 
+    config.removeButtons = (config.removeButtons || '') + ',Image,ImageButton,Flash';
+    config.removePlugins = (config.removePlugins || '') + ',image,uploadimage,image2';
+
+    config.versionCheck = false;
+
     // Toolbar groups configuration.
     config.toolbar = [
         {name: 'document', groups: ['mode', 'document', 'doctools'], items: ['Source']},

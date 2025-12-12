@@ -233,8 +233,35 @@
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
-                    <textarea type="text" class="form-control @error('produto.descricao') is-invalid @enderror"
-                              id="descricao" wire:model.debounce.500ms="produto.descricao"></textarea>
+
+                    {{-- textarea “oficial” do Livewire, fica oculto --}}
+                    <textarea
+                        type="text"
+                        id="descricao"
+                        class="form-control @error('produto.descricao') is-invalid @enderror"
+                        wire:model.debounce.500ms="produto.descricao"
+                        hidden
+                    ></textarea>
+
+                    {{-- CKEditor visível --}}
+                    <div wire:ignore>
+            <textarea
+                rows="10"
+                x-data
+                x-ref="descricaoInput"
+                x-init="
+                    window.ckeditorDescricao = CKEDITOR.replace($refs.descricaoInput, {
+                        customConfig: '/adminlte/ckeditor-plugins/plugins.js'
+                    });
+                    window.ckeditorDescricao.setData(@this.get('produto.descricao') ?? '');
+                    window.ckeditorDescricao.on('change', function () {
+                        @this.set('produto.descricao', window.ckeditorDescricao.getData());
+                    });
+                "
+                type="text"
+            >{!! $produto->descricao !!}</textarea>
+                    </div>
+
                     @error('produto.descricao')
                     <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                     @enderror
