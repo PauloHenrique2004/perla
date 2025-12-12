@@ -83,7 +83,7 @@ class HomeController extends Controller
 
         $produtos = Produto::ativos()->promocionais()->get();
 
-        $categorias = ProdutoCategoria::get();
+        $categorias = ProdutoCategoria::where('exibir_topo', 0)->get();
 
         $topoBanners = TopoBanner::where('ativo', true)
             ->orderBy('ordem')

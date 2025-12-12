@@ -43,7 +43,7 @@
     .marrom-texto {
         color: #af9174;
     }
-    
+
     .produto h6 {
         font-weight: 400;
         font-size: 14px;
