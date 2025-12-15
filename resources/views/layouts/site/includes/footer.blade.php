@@ -245,7 +245,20 @@
                     @endif
                     <span class="pr-2">© {{ config('app.name') }}</span>
                 </div>
-                <div class="col-md-6 text-md-right">
+
+                <div class="col-md-4 mb-2 mb-md-0">
+                    <span class="mr-2" style="font-size: 0.95rem; white-space: nowrap;">
+                       Desenvolvido com
+                       <span style="color:#fff; font-size: 1.1rem;">♥</span>
+                        por
+                        <a href="https://wetech.com.br" target="_blank"
+                           style="color:#ffffff; font-weight:600; text-decoration:none;">
+                            Wetech
+                        </a>
+                    </span>
+                </div>
+
+                <div class="col-md-2 text-md-right">
                     @if($configuracoes->facebook)
                         <a href="{{ $configuracoes->facebook }}" target="_blank"
                            class="btn btn-icon btn-sm rounded-circle social-facebook">
