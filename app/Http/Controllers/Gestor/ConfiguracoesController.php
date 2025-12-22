@@ -56,6 +56,13 @@ class ConfiguracoesController extends Controller
                 ->store('storage_configuracoes');
         }
 
+        // remoção explícita
+        foreach (['beneficio1', 'beneficio2', 'beneficio3', 'beneficio4'] as $campo) {
+            if ($request->input("remove_{$campo}") == '1') {
+                $configuracao->$campo = null;
+            }
+        }
+
 
         $configuracao->save();
 

@@ -1,7 +1,7 @@
 @extends('layouts.gestor.gestor')
 
-@section('title', 'Formulário Banner - ')
-@section('header-title', 'Formulário Banner')
+@section('title', 'Formulário Card - ')
+@section('header-title', 'Formulário Card')
 
 @section('content')
     <livewire:gestor.slide :id="$id">

@@ -25,19 +25,35 @@
         <div class="form-group mb-3">
             <label for="beneficio1">Benefício 1</label>
             <input type="file" class="form-control" id="beneficio1" name="beneficio1" accept=".jpg,.jpeg,.png,.webp">
+
             @if(!empty($configuracao->beneficio1))
-                <div class="mt-2">
+                <div class="mt-2 d-flex align-items-center">
                     <img src="{{ asset('/'.$configuracao->beneficio1) }}" alt="Benefício 1" style="max-height:60px;">
+
+                    <button type="submit"
+                            name="remove_beneficio1"
+                            value="1"
+                            class="btn btn-outline-danger btn-sm ml-3">
+                        Remover
+                    </button>
                 </div>
             @endif
         </div>
+
 
         <div class="form-group mb-3">
             <label for="beneficio2">Benefício 2</label>
             <input type="file" class="form-control" id="beneficio2" name="beneficio2" accept=".jpg,.jpeg,.png,.webp">
             @if(!empty($configuracao->beneficio2))
-                <div class="mt-2">
+                <div class="mt-2 d-flex align-items-center">
                     <img src="{{ asset('/'.$configuracao->beneficio2) }}" alt="Benefício 2" style="max-height:60px;">
+
+                    <button type="submit"
+                            name="remove_beneficio2"
+                            value="1"
+                            class="btn btn-outline-danger btn-sm ml-3">
+                        Remover
+                    </button>
                 </div>
             @endif
         </div>
@@ -46,8 +62,15 @@
             <label for="beneficio3">Benefício 3</label>
             <input type="file" class="form-control" id="beneficio3" name="beneficio3" accept=".jpg,.jpeg,.png,.webp">
             @if(!empty($configuracao->beneficio3))
-                <div class="mt-2">
+                <div class="mt-2 d-flex align-items-center">
                     <img src="{{ asset('/'.$configuracao->beneficio3) }}" alt="Benefício 3" style="max-height:60px;">
+
+                    <button type="submit"
+                            name="remove_beneficio3"
+                            value="1"
+                            class="btn btn-outline-danger btn-sm ml-3">
+                        Remover
+                    </button>
                 </div>
             @endif
         </div>
@@ -56,8 +79,15 @@
             <label for="beneficio4">Benefício 4</label>
             <input type="file" class="form-control" id="beneficio4" name="beneficio4" accept=".jpg,.jpeg,.png,.webp">
             @if(!empty($configuracao->beneficio4))
-                <div class="mt-2">
+                <div class="mt-2 d-flex align-items-center">
                     <img src="{{ asset('/'.$configuracao->beneficio4) }}" alt="Benefício 4" style="max-height:60px;">
+
+                    <button type="submit"
+                            name="remove_beneficio4"
+                            value="1"
+                            class="btn btn-outline-danger btn-sm ml-3">
+                        Remover
+                    </button>
                 </div>
             @endif
         </div>

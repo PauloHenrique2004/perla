@@ -25,7 +25,7 @@
                             <th style="width:120px;">Mobile</th>
                             <th>Título</th>
                             <th>Link</th>
-                            <th style="width:100px;">Ativo</th>
+{{--                            <th style="width:100px;">Ativo</th>--}}
                             <th style="width:120px;">Ordem</th>
                             <th style="width:220px;"></th>
                         </tr>
@@ -49,7 +49,7 @@
                                 </td>
                                 <td>{{ $banner->titulo }}</td>
                                 <td>{{ $banner->link }}</td>
-                                <td>{{ $banner->ativo ? 'Sim' : 'Não' }}</td>
+{{--                                <td>{{ $banner->ativo ? 'Sim' : 'Não' }}</td>--}}
                                 <td>{{ $banner->ordem }}</td>
                                 <td class="text-right">
                                     <a class="btn btn-sm btn-primary" href="{{ route('gestor.topo_banners.edit', $banner->id) }}">

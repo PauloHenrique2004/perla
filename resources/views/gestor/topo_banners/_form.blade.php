@@ -27,22 +27,27 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="ordem">Ordem</label>
-                    <input type="number" class="form-control" id="ordem" name="ordem"
+                    <input type="number" class="form-control" id="ordem" name="ordem" required
                            value="{{ old('ordem', $topoBanner->ordem) }}">
                 </div>
             </div>
 
             {{-- Ativo --}}
-            <div class="col-sm-3 d-flex align-items-center">
-                <div class="form-group mb-0">
-                    <label for="ativo" class="mr-2">Ativo</label><br>
-                    <input type="checkbox" id="ativo" name="ativo" value="1"
-                        {{ old('ativo', $topoBanner->ativo) ? 'checked' : '' }}>
-                </div>
-            </div>
+            {{--            <div class="col-sm-3 d-flex align-items-center">--}}
+            {{--                <div class="form-group mb-0">--}}
+            {{--                    <label for="ativo" class="mr-2">Ativo</label><br>--}}
+
+            {{--                    --}}{{-- valor padrão 0, sobrescrito para 1 se o checkbox estiver marcado --}}
+            {{--                    <input type="hidden" name="ativo" value="0">--}}
+
+            {{--                    <input type="checkbox" id="ativo" name="ativo" value="1"--}}
+            {{--                        {{ old('ativo', $topoBanner->ativo) ? 'checked' : '' }}>--}}
+            {{--                </div>--}}
+            {{--            </div>--}}
+
 
             {{-- Imagem Desktop --}}
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <label for="imagem_desktop">Imagem Desktop</label>
                     <div class="alert alert-warning py-2" role="alert" style="margin-bottom:8px;">
@@ -59,7 +64,7 @@
             </div>
 
             {{-- Imagem Mobile --}}
-            <div class="col-sm-6">
+            <div class="col-sm-4">
                 <div class="form-group">
                     <label for="imagem_mobile">Imagem Mobile</label>
                     <div class="alert alert-warning py-2" role="alert" style="margin-bottom:8px;">

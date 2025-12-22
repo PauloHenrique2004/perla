@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="informar-endereco-entrega"
-                               id="informar-endereco" value="1"
+                               id="informar-endereco" value="1" required
                                wire:model.debounce.500ms="formaEntrega.informar_endereco">
                         <label class="form-check-label" for="informar-endereco">Endereço pra Entrega:
                             <b>Informar</b></label>
@@ -28,7 +28,7 @@
 
                     <div class="form-check">
                         <input class="form-check-input" type="radio" name="informar-endereco-entrega"
-                               id="nao-informar-endereco" value="0"
+                               id="nao-informar-endereco" value="0" required
                                wire:model.debounce.500ms="formaEntrega.informar_endereco">
                         <label class="form-check-label" for="nao-informar-endereco">Endereço pra Entrega: <b>Não
                                 Informar</b></label>
@@ -36,7 +36,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 
     <div class="card-footer">

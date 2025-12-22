@@ -33,7 +33,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="ordem">Ordem</label>
-                    <input type="number" class="form-control" id="ordem" name="ordem"
+                    <input type="number" class="form-control" id="ordem" name="ordem" required
                            value="{{ old('ordem', $depoimento->ordem) }}">
                 </div>
             </div>
@@ -42,6 +42,7 @@
             <div class="col-sm-3 d-flex align-items-center">
                 <div class="form-group mb-0">
                     <label for="ativo" class="mr-2">Ativo</label><br>
+                    <input type="hidden" name="ativo" value="0">
                     <input type="checkbox" id="ativo" name="ativo" value="1"
                         {{ old('ativo', $depoimento->ativo) ? 'checked' : '' }}>
                 </div>
@@ -70,7 +71,7 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label for="texto">Texto do depoimento</label>
-                    <textarea id="texto" name="texto" rows="4"
+                    <textarea id="texto" name="texto" rows="4" required
                               class="form-control">{{ old('texto', $depoimento->texto) }}</textarea>
                 </div>
             </div>

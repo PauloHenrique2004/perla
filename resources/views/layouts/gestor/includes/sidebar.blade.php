@@ -84,7 +84,7 @@
                 <li class="nav-item">
                     <a href="{{ route('gestor.slides.index') }}" class="nav-link">
                         <i class="nav-icon fas fa-folder-open"></i>
-                        <p>Banner</p>
+                        <p>Card</p>
                     </a>
                 </li>
 

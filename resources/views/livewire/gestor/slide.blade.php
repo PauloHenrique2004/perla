@@ -74,11 +74,11 @@
 
                     <div class="ml-3 form-check-inline">
                         <input class="form-check-input" type="radio" name="promocional" id="promocional" value="1"
-                               wire:model.debounce.500ms="promocional">
+                               wire:model.debounce.500ms="promocional" required>
                         <label class="form-check-label" for="promocional">Sim</label>
 
                         <input class="form-check-input ml-2" type="radio" name="promocional" id="nao-promocional" value="0"
-                               wire:model.debounce.500ms="promocional">
+                               wire:model.debounce.500ms="promocional" required>
                         <label class="form-check-label" for="nao-promocional">Não</label>
                     </div>
                 </div>
@@ -90,7 +90,7 @@
                 <!--- Link --->
                 <div class="form-group">
                     <label for="link">Link</label>
-                    <input type="text" class="form-control @error('link') is-invalid @enderror" id="link"
+                    <input type="text" class="form-control @error('link') is-invalid @enderror" id="link" required
                            wire:model.debounce.500ms="link">
 
                     @error('link')

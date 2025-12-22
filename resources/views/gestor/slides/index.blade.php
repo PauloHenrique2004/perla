@@ -1,7 +1,7 @@
 @extends('layouts.gestor.gestor')
 
-@section('title', 'Banner - ')
-@section('header-title', 'Banner')
+@section('title', 'Card - ')
+@section('header-title', 'Card')
 
 @section('card-tools')
     <a class="btn btn-primary content animate__animated animate__flipInX" href="{{ route('gestor.slide') }}">

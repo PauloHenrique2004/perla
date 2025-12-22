@@ -188,22 +188,53 @@
             </div>
 
             {{-- Promocional --}}
+{{--            <div class="col-md-6">--}}
+{{--                <div class="form-group" style="display: flex">--}}
+{{--                    <div class="form-check">--}}
+{{--                        <input class="form-check-input" type="radio" name="sim-promocional" id="sim-promocional"--}}
+{{--                               value="1" wire:model="produto.promocional">--}}
+{{--                        <label class="form-check-label" for="sim-promocional">Preço Promocional</label>--}}
+{{--                    </div>--}}
+{{--                    <div class="form-check ml-2">--}}
+{{--                        <input class="form-check-input" type="radio" name="nao-promocional"--}}
+{{--                               id="nao-promocional" value="0" wire:model="produto.promocional">--}}
+{{--                        <label class="form-check-label" for="nao-promocional">Preço Normal</label>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
             <div class="col-md-6">
-                <div class="form-group" style="display: flex">
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="sim-promocional" id="sim-promocional"
-                               value="1" wire:model="produto.promocional">
+                <div class="form-group d-flex">
+                    <div class="form-check mr-3">
+                        <input class="form-check-input"
+                               type="radio"
+                               name="promocional"
+                               id="sim-promocional"
+                               value="1"
+                               wire:model="produto.promocional"
+                               >
                         <label class="form-check-label" for="sim-promocional">Preço Promocional</label>
                     </div>
-                    <div class="form-check ml-2">
-                        <input class="form-check-input" type="radio" name="nao-promocional"
-                               id="nao-promocional" value="0" wire:model="produto.promocional">
+
+                    <div class="form-check">
+                        <input class="form-check-input"
+                               type="radio"
+                               name="promocional"
+                               id="nao-promocional"
+                               value="0"
+                               wire:model="produto.promocional"
+                               >
                         <label class="form-check-label" for="nao-promocional">Preço Normal</label>
                     </div>
                 </div>
+
+                @error('produto.promocional')
+                <span class="text-danger small">{{ $message }}</span>
+                @enderror
             </div>
 
-            @if($produto->promocional)
+
+        @if($produto->promocional)
                 <div class="col-md-6">
                     <div class="form-group">
                         <x-jquery-mask-money wire-model="produto.preco_promocional" id="valor" label="Preço Promocional"
@@ -217,12 +248,12 @@
                 <label for="ativo">*Produto Ativo/Inativo</label>
                 <div class="form-group">
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="ativo"
+                        <input class="form-check-input" type="radio" name="ativo" required
                                id="ativo" value="1" wire:model="produto.ativo">
                         <label class="form-check-label" for="ativo">Ativo</label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="inativo"
+                        <input class="form-check-input" type="radio" name="ativo" required
                                id="inativo" value="0" wire:model="produto.ativo">
                         <label class="form-check-label" for="inativo">Inativo</label>
                     </div>
@@ -230,6 +261,7 @@
             </div>
 
             {{-- Descrição --}}
+            {{-- Descrição com CKEditor --}}
             <div class="col-md-12">
                 <div class="form-group">
                     <label for="descricao">Descrição</label>
@@ -267,6 +299,36 @@
                     @enderror
                 </div>
             </div>
+
+
+            {{--            <div class="form-group">--}}
+            {{--                <label for="conteudo">*Conteúdo</label>--}}
+
+            {{--                <textarea type="text" class="form-control @error('conteudo') is-invalid @enderror"--}}
+            {{--                          id="conteudo" wire:model.debounce.500ms="conteudo" hidden></textarea>--}}
+
+            {{--                <div wire:ignore>--}}
+            {{--                <textarea--}}
+            {{--                    rows="50"--}}
+            {{--                    x-data--}}
+            {{--                    x-ref="input"--}}
+            {{--                    x-init="--}}
+            {{--                        window.ckeditorHeight = '800px';--}}
+            {{--                        ckeditor = CKEDITOR.replace($refs.input, {--}}
+            {{--                            customConfig: '/adminlte/ckeditor-plugins/plugins.js'--}}
+            {{--                        });--}}
+            {{--                        ckeditor.on('change', function () {--}}
+            {{--                            @this.set('conteudo', ckeditor.getData());--}}
+            {{--                        });--}}
+            {{--                    "--}}
+            {{--                    type="text"--}}
+            {{--                >{!! $conteudo !!}</textarea>--}}
+            {{--                </div>--}}
+
+            {{--                @error('conteudo')--}}
+            {{--                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>--}}
+            {{--                @enderror--}}
+            {{--            </div>--}}
 
             {{-- Galeria de imagens --}}
             <div class="col-md-12" style="margin-top: 25px;">
