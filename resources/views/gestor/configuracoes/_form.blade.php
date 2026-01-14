@@ -156,7 +156,7 @@
         <div class="row mt-5">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label for="rua">*Rua</label>
+                    <label for="rua">Rua</label>
                     <input type="text" class="form-control @error('rua') is-invalid @enderror" id="rua" name="rua"
                            value="{{ old('rua', $configuracao->rua) }}">
                     @error('rua')

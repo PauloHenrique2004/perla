@@ -24,10 +24,10 @@ class ConfiguracaoRequest extends FormRequest
     public function rules()
     {
         return [
-            'rua' => 'required',
-            'bairro' => 'required',
-            'cidade' => 'required',
-            'estado' => 'required'
+            'rua'    => 'nullable|string|max:255',
+            'bairro' => 'nullable|string|max:255',
+            'cidade' => 'nullable|string|max:255',
+            'estado' => 'nullable|string|max:255',
         ];
     }
 }

@@ -173,13 +173,28 @@
                 <aside class="col-md-4 mb-4">
                     <h6 class="title mb-3">Quer falar com a gente?</h6>
                     <ul class="list-unstyled list-padding">
-                        <li class="footer-li mb-2">
-                            <i class="fa fa-map-marker"></i>
-                            <span>
-                                {{ $configuracoes->rua }}, {{ $configuracoes->bairro }}<br>
-                                {{ $configuracoes->cidade }} / {{ $configuracoes->estado }}
-                            </span>
-                        </li>
+                        @php
+                            $linha1 = implode(', ', array_filter([
+                                $configuracoes->rua,
+                                $configuracoes->bairro,
+                            ]));
+
+                            $linha2 = implode(' / ', array_filter([
+                                $configuracoes->cidade,
+                                $configuracoes->estado,
+                            ]));
+                        @endphp
+
+                        @if($linha1 || $linha2)
+                            <li class="footer-li mb-2">
+                                <i class="fa fa-map-marker"></i>
+                                <span>
+                                    @if($linha1) {{ $linha1 }} @endif
+                                    @if($linha1 && $linha2)<br>@endif
+                                    @if($linha2) {{ $linha2 }} @endif
+                                 </span>
+                            </li>
+                        @endif
 
                         @if($configuracoes->telefone1)
                             <li class="footer-li mb-2">
