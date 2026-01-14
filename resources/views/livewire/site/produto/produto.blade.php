@@ -133,7 +133,11 @@
             <div class="cart-items-number d-flex">
                 <input type='button' value='-' class='qtyminus btn btn-success btn-sm'
                        wire:click="alterarQuantidade('remover')"/>
-                <input type='text' maxlength="3" wire:model="quantidade" name='quantity' class='qty form-control'/>
+                <input type="text" maxlength="3"
+                       wire:model.debounce.15000ms="quantidade"
+                       name="quantity"
+                       class="qty form-control"/>
+
                 <input type='button' value='+' class='qtyplus btn btn-success btn-sm'
                        wire:click="alterarQuantidade('adicionar')"/>
             </div>
