@@ -239,12 +239,14 @@
                 </aside>
 
                 {{-- Coluna 3: Mapa --}}
+                @if($configuracoes->maps_iframe)
                 <aside class="col-md-4 mb-4">
                     <h6 class="title mb-3">Como chegar</h6>
                     <div class="g-maps">
                         {!! $configuracoes->maps_iframe !!}
                     </div>
                 </aside>
+                @endif
 
             </div>
         </div>
