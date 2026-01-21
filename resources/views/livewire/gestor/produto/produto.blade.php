@@ -172,36 +172,64 @@
             </div>
 
             {{-- Preços --}}
-            <div class="col-md-4">
-                <div class="form-group">
-                    <x-jquery-mask-money wire-model="produto.preco" id="preco" label="Preço"
-                                         value="{{ $produto->preco }}"/>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="form-group">
-                    <x-jquery-mask-money wire-model="produto.preco_a_partir_de" id="preco_a_partir_de"
-                                         label="Preço a partir de"
-                                         value="{{ $produto->preco_a_partir_de }}"/>
-                </div>
-            </div>
-
-            {{-- Promocional --}}
-{{--            <div class="col-md-6">--}}
-{{--                <div class="form-group" style="display: flex">--}}
-{{--                    <div class="form-check">--}}
-{{--                        <input class="form-check-input" type="radio" name="sim-promocional" id="sim-promocional"--}}
-{{--                               value="1" wire:model="produto.promocional">--}}
-{{--                        <label class="form-check-label" for="sim-promocional">Preço Promocional</label>--}}
-{{--                    </div>--}}
-{{--                    <div class="form-check ml-2">--}}
-{{--                        <input class="form-check-input" type="radio" name="nao-promocional"--}}
-{{--                               id="nao-promocional" value="0" wire:model="produto.promocional">--}}
-{{--                        <label class="form-check-label" for="nao-promocional">Preço Normal</label>--}}
-{{--                    </div>--}}
+{{--            <div class="col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <x-jquery-mask-money wire-model="produto.preco" id="preco" label="Preço"--}}
+{{--                                         value="{{ $produto->preco }}"/>--}}
 {{--                </div>--}}
 {{--            </div>--}}
+
+{{--            <div class="col-md-4">--}}
+{{--                <div class="form-group">--}}
+{{--                    <x-jquery-mask-money wire-model="produto.preco_a_partir_de" id="preco_a_partir_de"--}}
+{{--                                         label="Preço a partir de"--}}
+{{--                                         value="{{ $produto->preco_a_partir_de }}"/>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <x-jquery-mask-money
+                        wire-model="produto.preco"
+                        id="preco"
+                        label="Preço Base"
+                        value="{{ $produto->preco }}"
+                    />
+
+                    <div class="alert alert-info mt-2 mb-0" style="font-size: 14px;">
+                        <strong>Quando usar:</strong> Para produtos com preço fixo.<br>
+                        <strong>Itens opcionais:</strong>
+                        <ol class="mb-0">
+                            <li>Preencha o campo <strong>Preço Base</strong></li>
+                            <li>Clique em <strong>Salvar produto</strong> → isso habilita a opção <strong>Grupos</strong></li>
+                            <li>Clique no botão vermelho <strong>Grupos</strong></li>
+                            <li>Cadastre os itens como <strong>OPCIONAIS</strong></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="form-group">
+                    <x-jquery-mask-money
+                        wire-model="produto.preco_a_partir_de"
+                        id="preco_a_partir_de"
+                        label="Preço a partir de"
+                        value="{{ $produto->preco_a_partir_de }}"
+                    />
+
+                    <div class="alert alert-info mt-2 mb-0" style="font-size: 14px;">
+                        <strong>Quando usar:</strong> Para produtos que têm variações de escolha <strong>OBRIGATÓRIA</strong> para o cliente.<br>
+                        <strong>Adicionar itens obrigatórios:</strong>
+                        <ol class="mb-0">
+                            <li>Preencha o campo <strong>Preço a partir de</strong></li>
+                            <li>Clique em <strong>Salvar produto</strong> → isso habilita a opção <strong>Grupos</strong></li>
+                            <li>Clique no botão vermelho <strong>Grupos</strong></li>
+                            <li>Cadastre os itens como <strong>OBRIGATÓRIOS</strong></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
 
             <div class="col-md-6">
                 <div class="form-group d-flex">
